@@ -1,0 +1,10 @@
+extends layout/default
+
+block content
+  section.hero: .hero-body: .container
+    h1.title= title
+
+  .container
+    ul
+      each list in lists
+        li= list.name
