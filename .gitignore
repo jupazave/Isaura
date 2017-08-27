@@ -60,3 +60,5 @@ typings/
 # IDE Config
 .vscode
 
+.DS_Store
+
