@@ -13,10 +13,14 @@
     "express": "^4.15.4",
     "keystone-utils": "^0.4.0",
     "lodash": "^4.17.4",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.10",
     "multer": "^1.3.0",
     "pug": "^2.0.0-rc.3",
     "require-dir-all": "^0.4.12",
     "sequelize": "^4.7.5",
-    "serve-favicon": "^2.4.3"
+    "serve-favicon": "^2.4.3",
+    "url": "^0.11.0",
+    "url-join": "^2.0.2"
   }
 }

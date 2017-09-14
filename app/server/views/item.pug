@@ -1,8 +1,10 @@
 extends layout/default
+include ./mixins/fields
 
 block content
   section.hero: .hero-body: .container
     h1.title= title
-    ul
-      each list in lists
-        li: a(href=`/${list.link}`)= list.name
+
+  .container
+    form(action="", method="post")
+      +fields(fields)

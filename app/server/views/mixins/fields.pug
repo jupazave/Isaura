@@ -1,0 +1,42 @@
+mixin fields(fields)
+  each field in fields
+    +field(field)
+
+mixin field(field)
+  if field.mixin == "text"
+    +text(field)
+  if field.mixin == "textarea"
+    +textarea(field)
+  if field.mixin == "boolean"
+    +boolean(field)
+
+mixin text(field)
+  .field
+    label.label= field.name
+    .control
+      input.input(type='text')
+
+mixin textarea(field)
+  .field
+    label.label= field.name
+    .control
+      textarea.textarea
+
+mixin boolean(field)
+  .field
+    .control
+      input
+      label.label= field.name
+
+mixin single_image(field)
+  .field
+    label.label= field.name
+    .control
+      input.input(type='text', placeholder='e.g Alex Smith')
+
+
+mixin multiple_image(field)
+  .field
+    label.label= field.name
+    .control
+      input.input(type='text', placeholder='e.g Alex Smith')

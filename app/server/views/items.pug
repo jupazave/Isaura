@@ -1,0 +1,26 @@
+extends layout/default
+
+block content
+  section.hero: .hero-body: .container
+    h1.title= title
+
+  .container
+    nav.level
+      .level-left
+      .level-right: p.level-item
+        a(href=link).button.is-primary Añadir +
+    table.table.is-fullwidth
+      thead
+        tr
+          th ID
+          each field in fields
+            th= field.name
+          th Opciones
+      tbody
+        each item, index in items
+          tr
+            th= index+1
+            each field in fields
+              td= item[field.key]
+            td
+              a(href=item.link): span.icon: i.fa.fa-pencil
