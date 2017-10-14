@@ -8,7 +8,7 @@ block content
     nav.level
       .level-left
       .level-right: p.level-item
-        a(href=link).button.is-primary Añadir +
+        a(href=`${link}/add`).button.is-primary Añadir +
     table.table.is-fullwidth
       thead
         tr
@@ -24,3 +24,4 @@ block content
               td= item[field.key]
             td
               a(href=item.link): span.icon: i.fa.fa-pencil
+              a(href=item.link): span.icon: i.fa.fa-trash

@@ -3,11 +3,12 @@ const url = require('url');
 
 module.exports = (req, res) => {
   let locals = req.locals;
-  
 
   let key = req.params.item;
   let list = req.isaura.getList(key, res);
   let title = list.label;
+
+  locals.link = `${req.locals.root}/${key}`;
 
   let fields = list.fieldsArray.map((field) => {
     let name = utils.titlecase(field.name);
@@ -17,7 +18,7 @@ module.exports = (req, res) => {
   list.model.find({})
     .then((items) => {
       items.map((item) => {
-        item.link = url.resolve(req.isaura.get('root'), list.path, item._id);
+        item.link = [locals.link, item._id].join('/');
         return item;
       });
 

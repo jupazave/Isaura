@@ -1,41 +1,41 @@
-mixin fields(fields)
+mixin fields(fields, item)
   each field in fields
-    +field(field)
+    +field(field, item[field.key] || null)
 
-mixin field(field)
+mixin field(field, value)
   if field.mixin == "text"
-    +text(field)
+    +text(field, value)
   if field.mixin == "textarea"
-    +textarea(field)
+    +textarea(field, value)
   if field.mixin == "boolean"
-    +boolean(field)
+    +boolean(field, value)
 
-mixin text(field)
+mixin text(field, value)
   .field
     label.label= field.name
     .control
-      input.input(type='text')
+      input.input(type='text', value=value)
 
-mixin textarea(field)
+mixin textarea(field, value)
   .field
     label.label= field.name
     .control
-      textarea.textarea
+      textarea.textarea(value=value)
 
-mixin boolean(field)
+mixin boolean(field, value)
   .field
     .control
       input
       label.label= field.name
 
-mixin single_image(field)
+mixin single_image(field, value)
   .field
     label.label= field.name
     .control
       input.input(type='text', placeholder='e.g Alex Smith')
 
 
-mixin multiple_image(field)
+mixin multiple_image(field, value)
   .field
     label.label= field.name
     .control

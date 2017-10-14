@@ -6,7 +6,7 @@ module.exports = (req, res) => {
 
   let key = req.params.item;
   let id = req.params.id;
-  let isNew = (!!id);
+  let isNew = (id === 'new');
   let list = req.isaura.getList(key, res);
   let title = utils.titlecase(list.plural);
 
@@ -18,5 +18,17 @@ module.exports = (req, res) => {
   locals.title = title;
   locals.fields = fields;
 
-  res.render('item', locals);  
+  if(isNew){
+    locals.item = {};
+    res.render('item', locals);  
+  } else {
+
+  list.model.findById(id)
+    .then((item) => {
+
+      locals.item = item;
+      return res.render('item', locals);  
+    });
+
+  }
 }
